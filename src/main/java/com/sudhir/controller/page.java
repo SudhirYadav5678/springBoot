@@ -23,4 +23,22 @@ public class page {
     public String Service(Model model) {
         return "service";
     }
+
+    // constact
+    @RequestMapping("/contact")
+    public String Contact(Model model) {
+        return "contact";
+    }
+
+    // login
+    @RequestMapping("/login")
+    public String Login(Model model) {
+        return "login";
+    }
+
+    // signup
+    @RequestMapping("/signup")
+    public String Signup(Model model) {
+        return "signup";
+    }
 }
