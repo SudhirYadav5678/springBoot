@@ -21,7 +21,7 @@ import java.util.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class user {
+public class User {
     @Id
     private String userId;
     @Column(name = "username", nullable = false)

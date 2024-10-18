@@ -21,7 +21,7 @@ public class contact {
     private boolean favorite = false;
     // private List<String> socialLinks = new ArrayList<>();
     @ManyToOne
-    private user user;
+    private User user;
 
     @OneToMany(mappedBy = "contact", cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
     private List<SocialLinks> links = new ArrayList<>();

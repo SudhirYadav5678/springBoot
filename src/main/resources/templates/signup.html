@@ -1,66 +1,39 @@
 <!DOCTYPE html>
-<html
-  lang="en"
-  th:replace="~{base :: parent(~{::#content},~{::#title})}"
->
-  <head>
+<html lang="en" th:replace="~{base :: parent(~{::#content},~{::#title})}">
+<head>
     <title id="title">Signup</title>
-  </head>
-  <body>
+</head>
+<body>
     <div id="content">
-      <div class="grid grid-cols-12 mt-4">
+      <div class="grid grid-cols-12 pt-5">
         <div class="col-span-4 md:col-span-2 lg:col-span-3 xl:col-span-4"></div>
         <div class="col-span-12 md:col-span-8 lg:col-span-6 xl:col-span-4">
           <!-- 6 ki spance le rhi hai -->
           <!-- card -->
           <div
-            class="block p-6 border-t-[10px] border-blue-700 bg-white rounded-xl shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-blue-700 dark:hover:bg-gray-700"
-          >
-            <!-- message here -->
-
-            <div data-th-replace="message::messagebox"></div>
-
-            <h5
-              class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
-            >
-              Signup Here
-            </h5>
-            <p class="font-normal text-gray-400 dark:text-gray-400">
-              Start managing contacts on cloud ...
-            </p>
+            class="block p-6 border-t-[10px] border-blue-700 bg-white rounded-xl shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-blue-700 dark:hover:bg-gray-700" >
+            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white" >  Signup Here </h5>
+            <p class="font-normal text-gray-400 dark:text-gray-400"> Start managing contacts on cloud ... </p>
 
             <!-- this is  form -->
             <form
-              data-th-action="@{'/do-register'}"
-              method="post"
-              data-th-object="${userForm}"
-              class="mt-5"
-              novalidate
-            >
+              data-th-action="@{'/do-signup'}" method="post" data-th-object="${SingupForm}" class="mt-5" novalidate >
               <!-- name  -->
 
               <div class="mb-3">
-                <label
-                  for="email"
-                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                  >Name</label
-                >
+                <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
                 <input
                   type="text"
                   id="name"
                   data-th-field="*{name}"
-                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  placeholder="Enter here"
-                  required
-                />
-
-                <p
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter here" required />
+                {% comment %} <p
                   data-th-if="${#fields.hasErrors('name')}"
                   data-th-errors="*{name}"
                   class="text-red-600 px-1 py-2"
                 >
                   Name is required
-                </p>
+                </p> {% endcomment %}
               </div>
               <!-- email field -->
               <div class="mb-3">
@@ -77,11 +50,11 @@
                   placeholder="name@flowbite.com"
                   required
                 />
-                <p
+                {% comment %} <p
                   data-th-if="${#fields.hasErrors('email')}"
                   data-th-errors="*{email}"
                   class="text-red-600 px-1 py-2"
-                ></p>
+                ></p> {% endcomment %}
               </div>
               <!-- password field -->
               <div class="mb-3">
@@ -97,11 +70,11 @@
                   class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   required
                 />
-                <p
+                {% comment %} <p
                   data-th-if="${#fields.hasErrors('password')}"
                   data-th-errors="*{password}"
                   class="text-red-600 px-1 py-2"
-                ></p>
+                ></p> {% endcomment %}
               </div>
               <!-- Phone field -->
               <div class="mb-3">
@@ -111,18 +84,18 @@
                   >Contact Number</label
                 >
                 <input
-                  data-th-field="*{phoneNumber}"
+                  data-th-field="*{phone}"
                   type="text"
                   id="phone"
                   class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   required
                 />
 
-                <p
-                  data-th-if="${#fields.hasErrors('phoneNumber')}"
-                  data-th-errors="*{phoneNumber}"
+                {% comment %} <p
+                  data-th-if="${#fields.hasErrors('phone')}"
+                  data-th-errors="*{phone}"
                   class="text-red-600 px-1 py-2"
-                ></p>
+                ></p> {% endcomment %}
               </div>
 
               <!-- about textarea -->
@@ -140,11 +113,11 @@
                   placeholder="Write here..."
                 ></textarea>
 
-                <p
+                {% comment %} <p
                   data-th-if="${#fields.hasErrors('about')}"
                   data-th-errors="*{about}"
                   class="text-red-600 px-1 py-2"
-                ></p>
+                ></p> {% endcomment %}
               </div>
               <!-- button -->
 
